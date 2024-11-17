@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  color: blue;
+}
+
+h1 {
+  color: blue;
+}
+
+.container {
+  outline: 1px solid red;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  gap: 20px;
+}
+.container div {
+  background-color: gold;
+}
+
+.container.a div {
+  flex-basis: calc((100% - 20px) / 2);
+}
+
+.container.b div {
+  flex-basis: 386.6666666667px;
+}
+
+.container.c div {
+  flex-basis: 224px;
+}
+
+.box {
+  outline: 1px solid red;
+  display: flex;
+  width: 500px;
+  margin: 50px 0;
+  gap: 20px;
+}
+.box div {
+  background-color: tomato;
+  color: #fff;
+  flex-basis: 153.3333333333px;
+}
+
+html {
+  font-size: 16px;
+}
+
+/* h2, font-size:32px ,24px, 20px */
+/*  pixel size / root font siz */
+/*
+
+span { font-size:rem(32) -> 2rem } 
+*/
+span {
+  font-size: 0.5rem;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+/*# sourceMappingURL=sytle.css.map */

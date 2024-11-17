@@ -1,0 +1,103 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use  './variables' as v ;
+@use  './reset' as * ;
+
+
+h1 {
+    color:v.$brand;
+}
+.container {
+    outline:1px solid red;
+    width:100%;
+    max-width:v.$max-width;
+    display:flex; 
+    gap:v.$gap;
+
+    div {
+        background-color:gold;
+    }
+}
+
+@function column($count, $width:v.$max-width, $g:v.$gap){
+    $totalGap : ($count - 1) * $g;
+    $value :  $width - $totalGap;
+    $final :  math.div($value,$count);
+  
+    @return $final;
+}
+
+@function column2($size) {
+    $spacing : v.$max-width - (v.$gap * ($size - 1));
+    $value : math.div($spacing, $size);
+    @return $value;
+}
+
+.container.a div {
+    flex-basis: calc( ( 100% - 20px) / 2 );
+}
+
+.container.b div {
+    flex-basis: column(3); 
+}
+.container.c div {
+    flex-basis: column2(5);
+}
+
+.box {
+    outline:1px solid red;
+    display:flex;
+    width:500px;
+    margin:50px 0;
+    gap:v.$gap;
+
+    div {
+        background-color:tomato;
+        color:#fff;
+        flex-basis:column(3, 500px);
+    }
+}
+
+$root-font : 16;
+
+html {
+    font-size:#{$root-font}px;
+}
+
+@function myFunc($size) {
+    @return #{$size}px;
+}
+
+/* h2, font-size:32px ,24px, 20px */
+/*  pixel size / root font siz */
+
+/*
+
+span { font-size:rem(32) -> 2rem } 
+*/
+
+@function plus($size) {
+    @return $size + 16
+}
+
+// @debug plus(2);
+
+@function rem($size){
+    $value : math.div($size, 16);
+    @return #{$value}rem;
+}
+
+@debug rem(32);
+
+
+
+
+
+span {
+    font-size:0.5rem;
+}
+h1 {
+    font-size : myFunc(50);
+}
+
+// @debug myFunc(30);
